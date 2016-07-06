@@ -18,6 +18,8 @@ public class InsultGenerator {
 
 			String username = System.getenv("POSTGRESQL_USER");
 			String password = System.getenv("PGPASSWORD");
+			String hostname = System.getenv("HOSTNAME");
+
 			Connection connection = DriverManager.getConnection(databaseURL, username, password);
 
 			if (connection != null) {
@@ -28,7 +30,7 @@ public class InsultGenerator {
 					if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
 						article = "a";
 					}
-					theInsult =  String.format("Thou art %s %s %s %s!", article, rs.getString("first"),
+					theInsult =  String.format("From %s Thou art %s %s %s %s!", hostname, article, rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();
