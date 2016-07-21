@@ -27,7 +27,7 @@ public class InsultServlet extends GenericServlet {
             HttpServletRequest httpReq = (HttpServletRequest) req;
             HttpSession session = httpReq.getSession();
             Integer count = incrementCount( session );
-            message = "For the " + count + " time " + message;
+            message = "From session " + session.getId() + ", for the " + count + " time " + message;
         }
         res.getWriter().println(message);
     }
