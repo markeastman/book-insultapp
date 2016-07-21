@@ -15,9 +15,9 @@ import java.io.IOException;
 @WebServlet(value="/insult", name="insult-servlet")
 public class InsultServlet extends GenericServlet {
 
-    private static String COUNT_VALUE = "countValue";
+    private static final String COUNT_VALUE = "countValue";
 
-    // We now want to use a seesion value to see if they persis across HA redirects
+    // We now want to use a session value to see if they persist across HA redirects
     public void service(ServletRequest req, ServletResponse res)
             throws IOException, ServletException
     {
@@ -36,9 +36,9 @@ public class InsultServlet extends GenericServlet {
     {
         Integer count = (Integer)session.getAttribute(COUNT_VALUE);
         if (count == null)
-            count = new Integer(1);
+            count = 1;
         else
-            count = new Integer(count.intValue() + 1);
+            count = count + 1;
         session.setAttribute(COUNT_VALUE,count);
         return count;
     }
