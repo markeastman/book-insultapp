@@ -5,7 +5,7 @@
       http://www.jboss.com/xml/ns/javaee
       http://www.jboss.org/j2ee/schema/jboss-web_5_1.xsd">
     <replication-config>
-        <replication-trigger>SET_AND_NON_PRIMITIVE_GET</replication-trigger>
-        <replication-granularity>SESSION</replication-granularity>
+        <replication-trigger>SET_AND_GET</replication-trigger>
+        <replication-granularity>ATTRIBUTE</replication-granularity>
     </replication-config>
 </jboss-web>
